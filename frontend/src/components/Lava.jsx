@@ -19,8 +19,11 @@ const Lava = () => { // source code: https://codesandbox.io/p/sandbox/lava-lamp-
           <div className="blob top"></div>
           <div className="blob bottom"></div>
         </div>
-        <div className='m-24 mt-96 text-white italic text-9xl font-serif absolute top-0 left-0' >
+        <div className='m-24 mt-80 pt-0 text-white italic text-9xl font-serif absolute top-0 left-0' style={{ textShadow: '2px 2px 4px rgba(0, 0, 0, 0.1)' }}>
           Synesthesiac
+        </div>
+        <div className='m-24 mt-96 pt-28 pl-2 text-white italic text-3xl font-serif absolute top-0 left-0' style={{ textShadow: '2px 2px 4px rgba(0, 0, 0, 0.2)' }}>
+          Get visuals born from music.
         </div>
       </div>
       

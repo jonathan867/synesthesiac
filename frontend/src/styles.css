@@ -63,7 +63,7 @@
     width: 35px;
     height: 35px;
     bottom: -5%;
-    right: 34%;
+    right: 33%;
   
     animation: wobble2 10s ease-in-out alternate infinite,
       blob-six ease-in-out 12s infinite;
@@ -81,7 +81,7 @@
     width: 150px;
     height: 160px;
     bottom: 25%;
-    left: 44%;
+    left: 49%;
   
     animation: wobble2 6s ease-in-out alternate infinite,
       blob-three ease-in-out 20s infinite;
@@ -91,7 +91,7 @@
     width: 55px;
     height: 55px;
     bottom: -25%;
-    left: 30%;
+    left: 28%;
   
     animation: wobble1 9s ease-in-out alternate infinite,
       blob-five ease-in-out 32s infinite;

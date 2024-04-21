@@ -12,9 +12,6 @@ const App = () => {
         <Lava/>
       </div>
       <Body/>
-      <div>
-        hi
-      </div>
     </>
   )
 }
