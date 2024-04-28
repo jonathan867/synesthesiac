@@ -1,15 +1,16 @@
-from fastapi import FastAPI, HTTPException
+from fastapi import FastAPI, HTTPException # FastAPI imports
+from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
 from typing import List
 from app.Models.model import predict_emotion
 
-import spotipy
+import spotipy # lyric parsing imports
 from spotipy.oauth2 import SpotifyClientCredentials
 import lyricsgenius
 import re
 import time
 
-import nltk
+import nltk # NLP imports
 from nltk.tokenize import word_tokenize
 from nltk import pos_tag
 from nltk.corpus import stopwords
@@ -18,7 +19,20 @@ from collections import Counter
 nltk.download('punkt')
 nltk.download('averaged_perceptron_tagger')
 
+import os
+from openai import OpenAI
+
+client = OpenAI()
+
 app = FastAPI()
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],
+    allow_credentials=True,
+    allow_methods=["GET", "POST", "PUT", "DELETE"],
+    allow_headers=["*"],
+)
 
 class SongInput(BaseModel): # Define request body model
     lyrics_text: str
@@ -47,7 +61,19 @@ class PlaylistAnalyzeOut(BaseModel):
     percentRelaxed: float
     percentSad: float
     motifs: List[str]
+    storedSongs: List[dict]
     
+class GenerateImageInput(BaseModel):
+    playlistName: str
+    percentAngry: float
+    percentHappy: float
+    percentRelaxed: float
+    percentSad: float
+    motifs: List[str]
+    style: str
+
+class GenerateImageOut(BaseModel):
+    image_url: str
     
 def extractNouns(text):
     
@@ -63,9 +89,7 @@ def extractNouns(text):
         'nothing', 'cause', '\'cause' # other common words
     ]) # filter out common song nouns that aren't motifs
     stop_words = set(stopwords.words('english')) | extraStopwords
-
-     # Remove stopwords
-    filteredTokens = [word for word in tokens if word.lower() not in stop_words]
+    filteredTokens = [word for word in tokens if word.lower() not in stop_words] # Remove stopwords
 
     taggedTokens = pos_tag(filteredTokens) # tag each word as a part of speech
     nouns = [token for token, pos in taggedTokens if pos.startswith('NN')]
@@ -89,6 +113,7 @@ def extractPlaylist(clientId, clientSecret, geniusToken, playlistURI):
     emotionCount = {"angry": 0, "happy": 0, "relaxed": 0, "sad": 0}
     motifParseCount = 5 # we will only extract the nouns of the first 5 songs
     motifCounter = Counter()
+    storedSongs = []
 
     for track in tracks:
         song_name = track['track']['name']
@@ -120,6 +145,12 @@ def extractPlaylist(clientId, clientSecret, geniusToken, playlistURI):
                         if (emotion in emotionCount):
                             emotionCount[emotion] += 1
 
+                            storedSongs.append({
+                                'song_name': song_name,
+                                'artist_name': artist_name,
+                                'emotion': emotion
+                            })
+
                         if (motifParseCount > 0): # only noun parse the first 5 songs
                             nouns = extractNouns(lyrics) # Extract nouns from lyrics
                             motifCounter.update(nouns)
@@ -144,7 +175,7 @@ def extractPlaylist(clientId, clientSecret, geniusToken, playlistURI):
     # print(motifCounter)
     for key, value in motifCounter.most_common(10):
         print(key, ':', value)
-    return playlistName, emotionCount, motifCounter
+    return playlistName, emotionCount, motifCounter, storedSongs
 
 
         
@@ -165,9 +196,9 @@ async def predict_emotion_endpoint(song_info: SongInput):
         raise HTTPException(status_code=500, detail=str(e))
     
 @app.post("/analyze-playlist/", response_model=PlaylistAnalyzeOut)
-async def predict_emotion_endpoint(playlist_info: PlaylistInput):
+async def analyze_playlist_endpoint(playlist_info: PlaylistInput):
     # the spotify playlist must be public
-    playlistName, emotionCount, motifCounter = extractPlaylist(playlist_info.spotifyClientId, playlist_info.spotifyClientSecret, playlist_info.geniusAPIToken, playlist_info.playlistURI)
+    playlistName, emotionCount, motifCounter, storedSongs = extractPlaylist(playlist_info.spotifyClientId, playlist_info.spotifyClientSecret, playlist_info.geniusAPIToken, playlist_info.playlistURI)
     print("Done")
     songCount = emotionCount["angry"] + emotionCount["sad"] + emotionCount["happy"] + emotionCount["relaxed"]
     pAngry = emotionCount["angry"] /songCount
@@ -177,6 +208,42 @@ async def predict_emotion_endpoint(playlist_info: PlaylistInput):
 
     motifs = [motif for motif, count in motifCounter.most_common(10)]
 
-    return {"playlistName": playlistName, "percentAngry": pAngry, "percentHappy": pHappy, "percentRelaxed": pRelaxed, "percentSad": pSad, "motifs": motifs}
+    return {"playlistName": playlistName, "percentAngry": pAngry, "percentHappy": pHappy, "percentRelaxed": pRelaxed, "percentSad": pSad, "motifs": motifs, "storedSongs": storedSongs}
 
+@app.post("/generate-image/", response_model=GenerateImageOut)
+async def generate_image_endpoint(playlist_info: GenerateImageInput):
+    emotions = {
+        "angry": playlist_info.percentAngry,
+        "happy": playlist_info.percentHappy,
+        "relaxed": playlist_info.percentRelaxed,
+        "sad": playlist_info.percentSad
+    }
+    maxEmotion = max(emotions, key=emotions.get)
+    color = ""
 
+    if maxEmotion == "happy":
+        color += " using bright colors"
+    elif maxEmotion == "angry":
+        color += " using deep colors"
+    elif maxEmotion == "relaxed":
+        color += " using muted and pastel colors"
+    elif maxEmotion == "sad":
+        color += " using darker colors with bold bursts of deep hues"
+
+    prompt = f"Create a textless, {maxEmotion}, {playlist_info.style} titled \"{playlist_info.playlistName}\" {color}"
+    
+    if playlist_info.motifs:
+        motifs= ", ".join(playlist_info.motifs)
+        prompt += f", incorporating the motifs: {motifs}"
+    print(prompt)
+
+    response = client.images.generate( # set up API key in backend env with: export OPENAI_API_KEY=...
+        model="dall-e-3",
+        prompt=prompt,
+        size="1024x1024",
+        quality="standard",
+        n=1,
+    )
+
+    image_url = response.data[0].url # handle error handling
+    return {"image_url": image_url}
