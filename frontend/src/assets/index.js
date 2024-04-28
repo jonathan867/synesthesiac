@@ -10,6 +10,14 @@ import k from "./k.jpeg";
 import lad from "./lad.jpeg";
 import teiavsd from "./teiavsd.png";
 import wd from "./wd.jpeg";
+import w2023 from "./w2023.jpeg";
+import e from "./e.jpeg";
+import pp from "./pp.png";
+
+import brokenRecord from "./brokenRecord.png";
+import note from "./note.png";
+import brush from "./brush.gif";
+import unconnected from "./unconnected.png";
 
 export {
     a1989s,
@@ -23,5 +31,13 @@ export {
     k,
     lad,
     teiavsd,
-    wd
+    wd,
+    w2023,
+    e,
+    pp,
+    
+    brokenRecord,
+    note,
+    brush,
+    unconnected
 };

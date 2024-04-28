@@ -1,10 +1,9 @@
-import { useState } from 'react'
+import React from 'react'
 import './App.css'
 
-import { Lava, Body } from "./components";
+import { Lava, Body, PlaylistForm, Footer } from "./components";
 
 const App = () => {
-  const [count, setCount] = useState(0)
 
   return (
     <>
@@ -12,8 +11,10 @@ const App = () => {
         <Lava/>
       </div>
       <Body/>
+      <PlaylistForm/>
+      <Footer/>
     </>
-  )
+  ) 
 }
 
 export default App

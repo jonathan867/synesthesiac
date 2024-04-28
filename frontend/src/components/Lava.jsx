@@ -1,7 +1,7 @@
 import React, { useRef } from 'react'
 import "../styles.css";
 
-const Lava = () => { // source code: https://codesandbox.io/p/sandbox/lava-lamp-rsd5m?file=%2Fsrc%2Findex.js
+const Lava = () => { // inspiration code: https://codesandbox.io/p/sandbox/lava-lamp-rsd5m?file=%2Fsrc%2Findex.js
   return (
     <>
       <div className="lamp">

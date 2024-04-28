@@ -1,0 +1,241 @@
+{
+    "playlistName": "Example Playlist",
+    "percentAngry": 0.20454545454545456,
+    "percentHappy": 0.3181818181818182,
+    "percentRelaxed": 0.25,
+    "percentSad": 0.22727272727272727,
+    "motifs": [
+        "luck",
+        "stop",
+        "babe",
+        "way",
+        "world",
+        "feeling",
+        "hurricanes",
+        "head",
+        "someone",
+        "feelin"
+    ],
+    "storedSongs": [
+        {
+            "song_name": "Guilty as Sin?",
+            "artist_name": "Taylor Swift",
+            "emotion": "sad"
+        },
+        {
+            "song_name": "Good Luck, Babe!",
+            "artist_name": "Chappell Roan",
+            "emotion": "happy"
+        },
+        {
+            "song_name": "Tragedy",
+            "artist_name": "Dhruv",
+            "emotion": "sad"
+        },
+        {
+            "song_name": "Hurricanes",
+            "artist_name": "Rina Sawayama",
+            "emotion": "happy"
+        },
+        {
+            "song_name": "Suspend your Disbelief",
+            "artist_name": "Matt Maltese",
+            "emotion": "relaxed"
+        },
+        {
+            "song_name": "When We Were Younger",
+            "artist_name": "grentperez",
+            "emotion": "relaxed"
+        },
+        {
+            "song_name": "Espresso",
+            "artist_name": "Sabrina Carpenter",
+            "emotion": "happy"
+        },
+        {
+            "song_name": "ballad of a homeschooled girl",
+            "artist_name": "Olivia Rodrigo",
+            "emotion": "angry"
+        },
+        {
+            "song_name": "Killing Me",
+            "artist_name": "Conan Gray",
+            "emotion": "sad"
+        },
+        {
+            "song_name": "Midnight Rain",
+            "artist_name": "Taylor Swift",
+            "emotion": "relaxed"
+        },
+        {
+            "song_name": "Make You Mine",
+            "artist_name": "Madison Beer",
+            "emotion": "happy"
+        },
+        {
+            "song_name": "Apocalypse",
+            "artist_name": "Cigarettes After Sex",
+            "emotion": "sad"
+        },
+        {
+            "song_name": "Kingston",
+            "artist_name": "Faye Webster",
+            "emotion": "relaxed"
+        },
+        {
+            "song_name": "Vigilante Shit",
+            "artist_name": "Taylor Swift",
+            "emotion": "angry"
+        },
+        {
+            "song_name": "Sofia",
+            "artist_name": "Clairo",
+            "emotion": "happy"
+        },
+        {
+            "song_name": "Happier Than Ever",
+            "artist_name": "Billie Eilish",
+            "emotion": "sad"
+        },
+        {
+            "song_name": "Lust For Life (with The Weeknd)",
+            "artist_name": "Lana Del Rey, The Weeknd",
+            "emotion": "happy"
+        },
+        {
+            "song_name": "get him back!",
+            "artist_name": "Olivia Rodrigo",
+            "emotion": "angry"
+        },
+        {
+            "song_name": "Ain't Shit",
+            "artist_name": "Doja Cat",
+            "emotion": "angry"
+        },
+        {
+            "song_name": "greedy",
+            "artist_name": "Tate McRae",
+            "emotion": "happy"
+        },
+        {
+            "song_name": "Envy the Leaves",
+            "artist_name": "Madison Beer",
+            "emotion": "relaxed"
+        },
+        {
+            "song_name": "Sue Me",
+            "artist_name": "Sabrina Carpenter",
+            "emotion": "happy"
+        },
+        {
+            "song_name": "Mona Lisa",
+            "artist_name": "Dominic Fike",
+            "emotion": "happy"
+        },
+        {
+            "song_name": "Serendipity",
+            "artist_name": "Laufey",
+            "emotion": "relaxed"
+        },
+        {
+            "song_name": "Fast Times",
+            "artist_name": "Sabrina Carpenter",
+            "emotion": "relaxed"
+        },
+        {
+            "song_name": "Rush",
+            "artist_name": "Troye Sivan",
+            "emotion": "happy"
+        },
+        {
+            "song_name": "Crash My Car",
+            "artist_name": "COIN",
+            "emotion": "happy"
+        },
+        {
+            "song_name": "Physical",
+            "artist_name": "Dua Lipa",
+            "emotion": "happy"
+        },
+        {
+            "song_name": "All Too Well (10 Minute Version) (Taylor's Version) (From The Vault)",
+            "artist_name": "Taylor Swift",
+            "emotion": "sad"
+        },
+        {
+            "song_name": "love is embarrassing",
+            "artist_name": "Olivia Rodrigo",
+            "emotion": "angry"
+        },
+        {
+            "song_name": "My Heart It Beats for You",
+            "artist_name": "grentperez",
+            "emotion": "relaxed"
+        },
+        {
+            "song_name": "In Your Eyes",
+            "artist_name": "The Weeknd",
+            "emotion": "sad"
+        },
+        {
+            "song_name": "CUFF IT",
+            "artist_name": "Beyoncé",
+            "emotion": "happy"
+        },
+        {
+            "song_name": "Boom Clap",
+            "artist_name": "Charli XCX",
+            "emotion": "happy"
+        },
+        {
+            "song_name": "I Knew You Were Trouble (Taylor's Version)",
+            "artist_name": "Taylor Swift",
+            "emotion": "angry"
+        },
+        {
+            "song_name": "light",
+            "artist_name": "wave to earth",
+            "emotion": "relaxed"
+        },
+        {
+            "song_name": "Clementine",
+            "artist_name": "grentperez",
+            "emotion": "relaxed"
+        },
+        {
+            "song_name": "Letter To My 13 Year Old Self",
+            "artist_name": "Laufey",
+            "emotion": "sad"
+        },
+        {
+            "song_name": "Pretty When You Cry",
+            "artist_name": "Lana Del Rey",
+            "emotion": "sad"
+        },
+        {
+            "song_name": "Look What You Made Me Do",
+            "artist_name": "Taylor Swift",
+            "emotion": "angry"
+        },
+        {
+            "song_name": "The Man",
+            "artist_name": "Taylor Swift",
+            "emotion": "angry"
+        },
+        {
+            "song_name": "daisy.",
+            "artist_name": "wave to earth",
+            "emotion": "relaxed"
+        },
+        {
+            "song_name": "Reckless",
+            "artist_name": "Madison Beer",
+            "emotion": "sad"
+        },
+        {
+            "song_name": "Confident",
+            "artist_name": "Demi Lovato",
+            "emotion": "angry"
+        }
+    ]
+}

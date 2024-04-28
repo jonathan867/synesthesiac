@@ -11,7 +11,7 @@ const Gallery = ({ examples, direction }) => {
             {duplicatedExamples.map((example, index) => (
 
                 <div key={index} style={{ position: 'relative', flexShrink: 0 }}>
-                    <img src={example.image} alt={`Image ${index}`} style={{ width: 'auto', height: '300px' }} />
+                    <img src={example.image} alt={`Image ${index}`} style={{ width: '300px', height: '300px' }} />
                     <motion.div
                         className="example-hover py-4 px-3 text-white"
                         transition={{ duration: 0.3 }}
@@ -48,7 +48,6 @@ const Gallery = ({ examples, direction }) => {
                             <p className='mt-3 mx-4'> Motifs: {example.motifs.join(', ')} </p>
                             <p className='mx-4'> Style: {example.style} </p>
                         </div>
-
                     </motion.div>
                 </div>
             ))}

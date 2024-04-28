@@ -10,12 +10,17 @@ import {
     k,
     lad,
     teiavsd,
-    wd
+    wd,
+    w2023,
+    e,
+    pp,
 } from "../assets";
+
+import examplePlaylist from "./examplePlaylist.json";
 
 const examples = [
     {
-        playlistName: "A 1989 Summer",
+        playlistName: "1989 Summer",
         link: "https://open.spotify.com/playlist/1xskD85RAxKqfTnOcZH98z?si=d69549749cd0425d",
         image: a1989s,
         percentAngry: 0.07142857142857142,
@@ -25,8 +30,30 @@ const examples = [
         motifs: ["sky", "car", "love"],
         style: "Drawing"
     },
+    // {
+    //     playlistName: "\"I'm better than you\" Indie",
+    //     link: "https://open.spotify.com/playlist/5fUJSOGkv4EWgDgiSU6t1t?si=83d612b769154f37",
+    //     image: ibtyi,
+    //     percentAngry: 0.0,
+    //     percentHappy: 0.25,
+    //     percentRelaxed: 0.2,
+    //     percentSad: 0.55,
+    //     motifs: ["time", "eye"],
+    //     style: "Abstract painting"
+    // },
     {
-        playlistName: "Boyband Radiance",
+        playlistName: "Deep End",
+        link: "https://open.spotify.com/playlist/1B5elPrjLlYaRyIZZz7oFE?si=c8b32b1236834e73",
+        image: de,
+        percentAngry: 0.0,
+        percentHappy: 0.5555555555555556,
+        percentRelaxed: 0.1111111111111111,
+        percentSad: 0.3333333333333333,
+        motifs: ["dive", "style"],
+        style: "Pointillism painting"
+    },
+    {
+        playlistName: "Boyband Pop",
         link: "https://open.spotify.com/playlist/3jNBX6xhnidlHDu8kUb1BA?si=f525317b43454c11",
         image: br,
         percentAngry: 0.0,
@@ -48,17 +75,6 @@ const examples = [
         style: "Abstract painting"
     },
     {
-        playlistName: "Deep End",
-        link: "https://open.spotify.com/playlist/1B5elPrjLlYaRyIZZz7oFE?si=c8b32b1236834e73",
-        image: de,
-        percentAngry: 0.0,
-        percentHappy: 0.5555555555555556,
-        percentRelaxed: 0.1111111111111111,
-        percentSad: 0.3333333333333333,
-        motifs: ["dive", "style"],
-        style: "Pointillism painting"
-    },
-    {
         playlistName: "Driving Through the Night",
         link: "https://open.spotify.com/playlist/0XB1NREU8SZIuo5aBNjZ3k?si=bfaf16c77e2c4f51",
         image: dttn,
@@ -68,6 +84,28 @@ const examples = [
         percentSad: 0.47058823529411764,
         motifs: ["soul", "look", "way"],
         style: "Painting"
+    },
+    {
+        playlistName: "Europe Playlist",
+        link: "https://open.spotify.com/playlist/7Im7dkLnzjBJXY4aXK1Z1x?si=d91c06cb541d4a5e",
+        image: e,
+        percentAngry: 0.05555555555555555,
+        percentHappy: 0.3888888888888889,
+        percentRelaxed: 0.3333333333333333,
+        percentSad: 0.2222222222222222,
+        motifs: ["city", "heaven"],
+        style: "Painting"
+    },
+    {
+        playlistName: "Winter 2023",
+        link: "https://open.spotify.com/playlist/3hIPT3ZA4rVAvYSU4JARwA?si=e4bfe0a0befb4971",
+        image: w2023,
+        percentAngry: 0.0,
+        percentHappy: 0.13636363636363635,
+        percentRelaxed: 0.045454545454545456,
+        percentSad: 0.8181818181818182,
+        motifs: ["alone"],
+        style: "Surrealism painting"
     },
     {
         playlistName: "Fluorecent",
@@ -81,6 +119,17 @@ const examples = [
         style: "Digital art"
     },
     {
+        playlistName: "Pandemic Pop",
+        link: "https://open.spotify.com/playlist/3qs1mSrbIB12XgBIvwIcHe?si=23cd0f16e7ac40c8",
+        image: pp,
+        percentAngry: 0.10714285714285714,
+        percentHappy: 0.7142857142857143,
+        percentRelaxed: 0.03571428571428571,
+        percentSad: 0.14285714285714285,
+        motifs: ["talk", "crazy"],
+        style: "Retro pop art"
+    },
+    {
         playlistName: "Holiday Jams",
         link: "https://open.spotify.com/playlist/2Ctf2HKdOIxsszeX4M8QNf?si=45b09516610548bd",
         image: hj,
@@ -88,41 +137,8 @@ const examples = [
         percentHappy: 0.9090909090909091,
         percentRelaxed: 0.0,
         percentSad: 0.09090909090909091,
-        motifs: ["christmas", "gift"],
+        motifs: ["christmas", "cookie"],
         style: "Photography"
-    },
-    {
-        playlistName: "\"I'm better than you\" Indie",
-        link: "https://open.spotify.com/playlist/5fUJSOGkv4EWgDgiSU6t1t?si=83d612b769154f37",
-        image: ibtyi,
-        percentAngry: 0.0,
-        percentHappy: 0.25,
-        percentRelaxed: 0.2,
-        percentSad: 0.55,
-        motifs: ["time", "eye"],
-        style: "Abstract painting"
-    },
-    {
-        playlistName: "Kerosene",
-        link: "https://open.spotify.com/playlist/2BL6JhlVtCy2U3XGB3r6gT?si=80d25b00659c42d2",
-        image: k,
-        percentAngry: 0.4444444444444444,
-        percentHappy: 0.2962962962962963,
-        percentRelaxed: 0.07407407407407407,
-        percentSad: 0.18518518518518517,
-        motifs: ["hand", "flicker"],
-        style: "Impressionist painting"
-    },
-    {
-        playlistName: "Lighthouse at Dusk",
-        link: "https://open.spotify.com/playlist/2JOo7nMG6zT7AxAHMHtonL?si=6b6953e9d0e942b0",
-        image: lad,
-        percentAngry: 0.07692307692307693,
-        percentHappy: 0.11538461538461539,
-        percentRelaxed: 0.0,
-        percentSad: 0.8076923076923077,
-        motifs: ["hills"],
-        style: "Watercolour painting"
     },
     {
         playlistName: "The Earth is a Very Small Dot",
@@ -136,6 +152,17 @@ const examples = [
         style: "Digital art"
     },
     {
+        playlistName: "Kerosene",
+        link: "https://open.spotify.com/playlist/2BL6JhlVtCy2U3XGB3r6gT?si=80d25b00659c42d2",
+        image: k,
+        percentAngry: 0.4444444444444444,
+        percentHappy: 0.2962962962962963,
+        percentRelaxed: 0.07407407407407407,
+        percentSad: 0.18518518518518517,
+        motifs: ["hand", "flicker"],
+        style: "Oil painting"
+    },
+    {
         playlistName: "Windows Down",
         link: "https://open.spotify.com/playlist/1UCC8HyD747DlpWmz9F7C7?si=5c3c01156bbe4772",
         image: wd,
@@ -146,6 +173,17 @@ const examples = [
         motifs: ["car", "fearless"],
         style: "Impressionist painting"
     },
+    {
+        playlistName: "Lighthouse at Dusk",
+        link: "https://open.spotify.com/playlist/2JOo7nMG6zT7AxAHMHtonL?si=6b6953e9d0e942b0",
+        image: lad,
+        percentAngry: 0.07692307692307693,
+        percentHappy: 0.11538461538461539,
+        percentRelaxed: 0.0,
+        percentSad: 0.8076923076923077,
+        motifs: ["hills"],
+        style: "Watercolour painting"
+    },
 ]
 
-export { examples };
+export { examples, examplePlaylist};
