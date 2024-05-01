@@ -17,18 +17,18 @@ const Body = () => {
                 <Gallery examples={half2} direction="left" />
             </div>
             <div className="mt-28 mx-48 text-black font-bold text-4xl text-center">
-                Capture playlist motifs and emotional composition with <br />
+                Analyze playlists for motifs and emotional composition with <br />
                 <span style={{ color: "#FCBD00" }}>
-                    {'\u{2728}'} song classification&nbsp;
+                    {'\u{2728}'}&nbsp;&nbsp;Song Classification&nbsp;
                     <a
                         href="https://colab.research.google.com/drive/1P7xr095bJbNavheDrmumXypSykjib2CA?usp=sharing"
                         style={{ textDecoration: 'underline' }}
                         target="_blank"
                         rel="noopener noreferrer"
                     >
-                        ML model
+                        ML Model
                     </a>
-                    &nbsp;{'\u{2728}'}
+                    &nbsp;&nbsp;{'\u{2728}'}
                 </span>
             </div>
             <div className="mt-24 mx-48 text-black font-bold text-4xl text-center">
